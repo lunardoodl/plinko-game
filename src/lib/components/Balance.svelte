@@ -11,6 +11,7 @@
   );
 
   const addMoneyAmounts = [100, 500, 1000];
+  let setAmount = 0; // New variable to store the input amount
 </script>
 
 <div class="flex overflow-hidden rounded-md">
@@ -44,6 +45,32 @@
           </button>
         {/each}
       </div>
+    </Popover.Content>
+  </Popover.Root>
+  <Popover.Root>
+    <Popover.Trigger
+      class="bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-500 active:bg-green-700 sm:text-base"
+    >
+      Set
+    </Popover.Trigger>
+    <Popover.Content
+      transition={flyAndScale}
+      sideOffset={8}
+      class="z-30 max-w-lg space-y-2 rounded-md bg-slate-600 p-3"
+    >
+      <p class="text-sm font-medium text-gray-200">Set balance</p>
+      <input
+        type="number"
+        bind:value={setAmount}
+        class="w-full rounded-md bg-gray-700 px-3 py-2 text-sm text-white"
+        placeholder="Enter amount"
+      />
+      <button
+        onclick={() => ($balance = setAmount)}
+        class="w-full rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-gray-900 transition-colors hover:bg-green-400 active:bg-green-600"
+      >
+        Set Balance
+      </button>
     </Popover.Content>
   </Popover.Root>
 </div>
